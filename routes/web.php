@@ -14,6 +14,8 @@ Route::prefix('service')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('estudiante/skill', 'skill');
         Route::get('estudiante/cursos', 'cursos');
+        Route::get('prediccion/nota', 'predecirNota');
+
     });
 });
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Examen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class DashboardController extends Controller
 {
@@ -115,5 +117,48 @@ class DashboardController extends Controller
 
         return response()->json($data);
 
+    }
+
+    public function predecirNota(Request $request)
+    {
+        $cursoId = $request->query('curso_id');
+        $userId = auth()->id();
+
+        $notas = DB::table('examenes')
+            ->where('user_id', $userId)
+            ->where('curso_id', $cursoId)
+            ->orderByDesc('id')
+            ->limit(5)
+            ->pluck('nota')
+            ->reverse()
+            ->values()
+            ->all();
+
+        if (count($notas) < 5) {
+            return response()->json(['error' => 'No hay suficientes notas.'], 400);
+        }
+
+        $response = Http::post(env('BOT_URL').'/predecir', [
+            'curso_id' => (int) $cursoId,
+            'notas' => array_map('floatval', $notas)
+        ]);
+
+        if ($response->failed()) {
+            return response()->json(['error' => 'Error consultando el modelo.'], 500);
+        }
+
+        $prediccion = $response->json('nota_predicha');
+        $ultimaNota = $notas[4];
+
+        $mensaje = match(true) {
+            $prediccion > $ultimaNota => '¡Buen trabajo! Tu próxima nota podría mejorar.',
+            $prediccion < $ultimaNota => 'Ten cuidado, tu desempeño podría estar bajando.',
+            default => 'Parece que tu rendimiento se mantiene estable.'
+        };
+
+        return response()->json([
+            'prediccion' => round($prediccion, 2),
+            'mensaje' => $mensaje
+        ]);
     }
 }
