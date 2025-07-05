@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $examenes = Examen::where('user_id',Auth::id())
-        ->orderBy('id', 'desc')
+        ->orderBy('created_at', 'desc')
         ->take(10)
         ->get();
 

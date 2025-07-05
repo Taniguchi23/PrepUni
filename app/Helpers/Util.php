@@ -22,9 +22,9 @@ class Util {
         $fecha = \Carbon\Carbon::parse($fecha);
         $ahora = \Carbon\Carbon::now();
 
-        $minutos = $fecha->diffInMinutes($ahora);
-        $horas   = $fecha->diffInHours($ahora);
-        $dias    = $fecha->diffInDays($ahora);
+        $minutos = (int)$fecha->diffInMinutes($ahora);
+        $horas   = (int)$fecha->diffInHours($ahora);
+        $dias    = (int)$fecha->diffInDays($ahora);
         $semanas = $fecha->diffInWeeks($ahora);
         $meses   = $fecha->diffInMonths($ahora);
 

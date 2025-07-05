@@ -20,7 +20,7 @@ class ExamenController extends Controller
 
         $examenes = Examen::with('curso')
             ->where('user_id', $usuario->id)
-            ->orderBy('id', 'desc')
+            ->orderBy('created_at', 'desc')
             ->get();
 
 

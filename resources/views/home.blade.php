@@ -19,7 +19,7 @@
                     </div>
                     <div class="card-body">
                         <div class="mx-auto" style="width: 500px;">
-                            <canvas id="skillsEstudiante"></canvas>
+                            <canvas id="skillsEstudiante"  style="width: 500px; height: 500px;"></canvas>
                         </div>
                     </div>
                 </div>
@@ -157,7 +157,6 @@
             .then(res => res.json())
             .then(res => {
                 const ctx = document.getElementById('skillsEstudiante').getContext('2d');
-
                 new Chart(ctx, {
                     type: 'radar',
                     data: {
@@ -172,8 +171,12 @@
                         }]
                     },
                     options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
                         scales: {
                             r: {
+                                min: 0,
+                                max: 20,
                                 ticks: {
                                     display: false
                                 },
