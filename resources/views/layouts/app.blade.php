@@ -1192,7 +1192,7 @@
 
         <!-- start footer section -->
         <div class="mt-auto p-6 text-center dark:text-white-dark ltr:sm:text-left rtl:sm:text-right">
-            © <span id="footer-year">2025</span>. Grupo 7.
+            © <span id="footer-year">2025</span>. Grupo 9 .
         </div>
         <!-- end footer section -->
     </div>

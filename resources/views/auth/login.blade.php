@@ -31,7 +31,7 @@
                 <input type="submit" value="Ingresar" class="btn solid" />
                 <div style="text-align: center; margin-top: 30px;">
                     <p style=" font-size: 16px;">
-                        Desarrollado por el Grupo 7 - Innovación y Transformación Digital
+                        Desarrollado por el Grupo 9 - Innovación y Transformación Digital
                     </p>
                     <img src="/assets/images/logos/logo_utp.png" alt="Logo UTP" style="height: 60px; margin-top: 10px;">
                 </div>
@@ -56,7 +56,7 @@
                 <input type="submit" class="btn" value="Registrarse" />
                 <div style="text-align: center; margin-top: 30px;">
                     <p style=" font-size: 16px;">
-                        Desarrollado por el Grupo 7 - Innovación y Transformación Digital
+                        Desarrollado por el Grupo 9 - Innovación y Transformación Digital
                     </p>
                     <img src="/assets/images/logos/logo_utp.png" alt="Logo UTP" style="height: 60px; margin-top: 10px;">
                 </div>
