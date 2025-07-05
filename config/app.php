@@ -126,6 +126,7 @@ return [
     'aliases' => [
         'Util' => App\Helpers\Util::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
+//        'Pdf' => Barryvdh\DomPDF\Facade\Pdf::class,
     ],
 
 ];

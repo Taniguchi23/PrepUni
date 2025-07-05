@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('link')
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 @endsection
@@ -19,6 +18,9 @@
                             </div>
                             <div class="card-footer bg-transparent border-0 text-end">
                                 <a href="{{route('estudiante.cursos.ver',['id' => $curso->id])}}" class="btn btn-primary">Ver Curso</a>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 text-end">
+                                <a href="{{route('estudiante.examen.crear',['id' => $curso->id])}}" class="btn btn-primary">Tomar Examen</a>
                             </div>
                         </div>
                     </div>

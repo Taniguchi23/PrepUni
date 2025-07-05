@@ -500,9 +500,6 @@
                                     <li>
                                         <a href="{{route('estudiante.examen.historial')}}">Historial</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Resolver</a>
-                                    </li>
                                 </ul>
                             </li>
                             <li class="menu nav-item">

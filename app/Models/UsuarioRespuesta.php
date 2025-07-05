@@ -8,6 +8,12 @@ class UsuarioRespuesta extends Model
 {
     protected $table = 'usuario_respuestas';
 
+    protected $fillable = [
+        'examen_id',
+        'pregunta_id',
+        'respuesta_id',
+       'user_id'
+    ];
     public function pregunta() {
         return $this->belongsTo(Pregunta::class, 'pregunta_id');
     }

@@ -24,6 +24,8 @@ Route::prefix('estudiante')->group(function () {
         Route::prefix('examen')->group(function () {
             Route::get('historial', 'historial')->name('estudiante.examen.historial');
             Route::get('lista', 'lista');
+
+
         });
         Route::prefix('cursos')->group(function () {
             Route::controller(CursoController::class)->group(function () {
@@ -31,6 +33,8 @@ Route::prefix('estudiante')->group(function () {
                 Route::get('ver/{id}','ver')->name('estudiante.cursos.ver');
                 Route::get('examen/ver/{id}','verExamen')->name('estudiante.cursos.examen.ver');
                 Route::post('exportar-examen/{id}','exportarPdf')->name('estudiante.cursos.examen.exportar');
+                Route::get('evaluar/{id}', 'crearExamen')->name('estudiante.examen.crear');
+                Route::post('examen/evaluar/{id}', 'guardarExamen')->name('estudiante.examen.guardar');
             });
 
         });
