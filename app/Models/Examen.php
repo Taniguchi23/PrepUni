@@ -11,4 +11,9 @@ class Examen extends Model
     {
         return $this->belongsTo(Curso::class);
     }
+
+    public function usuarioRespuestas()
+    {
+        return $this->hasMany(UsuarioRespuesta::class, 'examen_id');
+    }
 }
